@@ -677,6 +677,72 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAnimeAnime extends Schema.CollectionType {
+  collectionName: 'animes';
+  info: {
+    singularName: 'anime';
+    pluralName: 'animes';
+    displayName: 'Anime';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::anime.anime',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::anime.anime',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExtendedUserExtendedUser extends Schema.CollectionType {
+  collectionName: 'extended_users';
+  info: {
+    singularName: 'extended-user';
+    pluralName: 'extended-users';
+    displayName: 'extended-user';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    user_id: Attribute.Relation<
+      'api::extended-user.extended-user',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    nickname: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::extended-user.extended-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::extended-user.extended-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -693,6 +759,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::anime.anime': ApiAnimeAnime;
+      'api::extended-user.extended-user': ApiExtendedUserExtendedUser;
     }
   }
 }
