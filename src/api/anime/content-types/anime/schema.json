@@ -19,7 +19,7 @@
       "type": "string"
     },
     "synopsis": {
-      "type": "string"
+      "type": "text"
     },
     "episodes": {
       "type": "integer"
@@ -34,7 +34,8 @@
       "type": "integer"
     },
     "idApi": {
-      "type": "integer"
+      "type": "integer",
+      "unique": true
     }
   }
 }

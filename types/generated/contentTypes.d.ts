@@ -691,12 +691,12 @@ export interface ApiAnimeAnime extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     title_english: Attribute.String;
-    synopsis: Attribute.String;
+    synopsis: Attribute.Text;
     episodes: Attribute.Integer;
     status: Attribute.String;
     image_url: Attribute.String;
     year: Attribute.Integer;
-    idApi: Attribute.Integer;
+    idApi: Attribute.Integer & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -796,12 +796,13 @@ export interface ApiGenreGenre extends Schema.CollectionType {
     singularName: 'genre';
     pluralName: 'genres';
     displayName: 'genre';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

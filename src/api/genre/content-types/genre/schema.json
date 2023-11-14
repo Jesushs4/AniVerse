@@ -4,7 +4,8 @@
   "info": {
     "singularName": "genre",
     "pluralName": "genres",
-    "displayName": "genre"
+    "displayName": "genre",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     }
   }
 }
