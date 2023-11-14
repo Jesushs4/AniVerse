@@ -683,12 +683,20 @@ export interface ApiAnimeAnime extends Schema.CollectionType {
     singularName: 'anime';
     pluralName: 'animes';
     displayName: 'Anime';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String;
+    title_english: Attribute.String;
+    synopsis: Attribute.String;
+    episodes: Attribute.Integer;
+    status: Attribute.String;
+    image_url: Attribute.String;
+    year: Attribute.Integer;
+    idApi: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -743,6 +751,45 @@ export interface ApiExtendedUserExtendedUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiLibraryLibrary extends Schema.CollectionType {
+  collectionName: 'libraries';
+  info: {
+    singularName: 'library';
+    pluralName: 'libraries';
+    displayName: 'library';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    anime: Attribute.Relation<
+      'api::library.library',
+      'oneToMany',
+      'api::anime.anime'
+    >;
+    user: Attribute.Relation<
+      'api::library.library',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::library.library',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::library.library',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -761,6 +808,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::anime.anime': ApiAnimeAnime;
       'api::extended-user.extended-user': ApiExtendedUserExtendedUser;
+      'api::library.library': ApiLibraryLibrary;
     }
   }
 }

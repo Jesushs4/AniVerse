@@ -4,7 +4,8 @@
   "info": {
     "singularName": "anime",
     "pluralName": "animes",
-    "displayName": "Anime"
+    "displayName": "Anime",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,27 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "title_english": {
+      "type": "string"
+    },
+    "synopsis": {
+      "type": "string"
+    },
+    "episodes": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "idApi": {
+      "type": "integer"
     }
   }
 }
