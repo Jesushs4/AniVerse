@@ -715,6 +715,45 @@ export interface ApiAnimeAnime extends Schema.CollectionType {
   };
 }
 
+export interface ApiAnimegenreAnimegenre extends Schema.CollectionType {
+  collectionName: 'animegenres';
+  info: {
+    singularName: 'animegenre';
+    pluralName: 'animegenres';
+    displayName: 'animegenre';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    anime: Attribute.Relation<
+      'api::animegenre.animegenre',
+      'oneToMany',
+      'api::anime.anime'
+    >;
+    genre: Attribute.Relation<
+      'api::animegenre.animegenre',
+      'oneToMany',
+      'api::genre.genre'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::animegenre.animegenre',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::animegenre.animegenre',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiExtendedUserExtendedUser extends Schema.CollectionType {
   collectionName: 'extended_users';
   info: {
@@ -744,6 +783,36 @@ export interface ApiExtendedUserExtendedUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::extended-user.extended-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGenreGenre extends Schema.CollectionType {
+  collectionName: 'genres';
+  info: {
+    singularName: 'genre';
+    pluralName: 'genres';
+    displayName: 'genre';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::genre.genre',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::genre.genre',
       'oneToOne',
       'admin::user'
     > &
@@ -807,7 +876,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::anime.anime': ApiAnimeAnime;
+      'api::animegenre.animegenre': ApiAnimegenreAnimegenre;
       'api::extended-user.extended-user': ApiExtendedUserExtendedUser;
+      'api::genre.genre': ApiGenreGenre;
       'api::library.library': ApiLibraryLibrary;
     }
   }

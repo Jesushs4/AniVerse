@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "animegenres",
+  "info": {
+    "singularName": "animegenre",
+    "pluralName": "animegenres",
+    "displayName": "animegenre"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "anime": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::anime.anime"
+    },
+    "genre": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::genre.genre"
+    }
+  }
+}
