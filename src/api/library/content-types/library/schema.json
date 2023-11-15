@@ -22,7 +22,7 @@
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
     },
-    "episodes": {
+    "episodes_watched": {
       "type": "integer"
     },
     "status": {

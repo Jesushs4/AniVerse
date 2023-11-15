@@ -843,7 +843,7 @@ export interface ApiLibraryLibrary extends Schema.CollectionType {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
-    episodes: Attribute.Integer;
+    episodes_watched: Attribute.Integer;
     status: Attribute.String;
     score: Attribute.String;
     started: Attribute.Date;
