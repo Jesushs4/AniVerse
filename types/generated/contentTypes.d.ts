@@ -827,6 +827,7 @@ export interface ApiLibraryLibrary extends Schema.CollectionType {
     singularName: 'library';
     pluralName: 'libraries';
     displayName: 'library';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -842,6 +843,11 @@ export interface ApiLibraryLibrary extends Schema.CollectionType {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
+    episodes: Attribute.Integer;
+    status: Attribute.String;
+    score: Attribute.String;
+    started: Attribute.Date;
+    ended: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
