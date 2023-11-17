@@ -30,12 +30,6 @@
     },
     "score": {
       "type": "string"
-    },
-    "started": {
-      "type": "date"
-    },
-    "ended": {
-      "type": "date"
     }
   }
 }
