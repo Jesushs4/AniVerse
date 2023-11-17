@@ -29,7 +29,7 @@
       "type": "string"
     },
     "score": {
-      "type": "string"
+      "type": "integer"
     }
   }
 }

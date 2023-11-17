@@ -845,7 +845,7 @@ export interface ApiLibraryLibrary extends Schema.CollectionType {
     >;
     episodes_watched: Attribute.Integer;
     status: Attribute.String;
-    score: Attribute.String;
+    score: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
