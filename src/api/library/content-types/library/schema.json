@@ -25,7 +25,7 @@
     "episodes_watched": {
       "type": "integer"
     },
-    "status": {
+    "watch_status": {
       "type": "string"
     },
     "score": {

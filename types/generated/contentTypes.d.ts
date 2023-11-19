@@ -696,7 +696,7 @@ export interface ApiAnimeAnime extends Schema.CollectionType {
     status: Attribute.String;
     image_url: Attribute.String;
     year: Attribute.Integer;
-    idApi: Attribute.Integer & Attribute.Unique;
+    mal_id: Attribute.Integer & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -844,7 +844,7 @@ export interface ApiLibraryLibrary extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     episodes_watched: Attribute.Integer;
-    status: Attribute.String;
+    watch_status: Attribute.String;
     score: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -857,6 +857,43 @@ export interface ApiLibraryLibrary extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::library.library',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReviewReview extends Schema.CollectionType {
+  collectionName: 'reviews';
+  info: {
+    singularName: 'review';
+    pluralName: 'reviews';
+    displayName: 'Review';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    review: Attribute.Text;
+    summary: Attribute.Text;
+    library: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'api::library.library'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::review.review',
       'oneToOne',
       'admin::user'
     > &
@@ -885,6 +922,7 @@ declare module '@strapi/types' {
       'api::extended-user.extended-user': ApiExtendedUserExtendedUser;
       'api::genre.genre': ApiGenreGenre;
       'api::library.library': ApiLibraryLibrary;
+      'api::review.review': ApiReviewReview;
     }
   }
 }
