@@ -28,7 +28,7 @@
     "watch_status": {
       "type": "string"
     },
-    "score": {
+    "user_score": {
       "type": "integer"
     }
   }
