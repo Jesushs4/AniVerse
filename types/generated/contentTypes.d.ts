@@ -883,7 +883,6 @@ export interface ApiReviewReview extends Schema.CollectionType {
       'oneToOne',
       'api::library.library'
     >;
-    date_added: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

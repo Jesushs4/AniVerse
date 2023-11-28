@@ -22,9 +22,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::library.library"
-    },
-    "date_added": {
-      "type": "date"
     }
   }
 }
