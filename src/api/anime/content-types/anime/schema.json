@@ -36,6 +36,12 @@
     "mal_id": {
       "type": "integer",
       "unique": true
+    },
+    "genre": {
+      "displayName": "genre",
+      "type": "component",
+      "repeatable": true,
+      "component": "genre.genre"
     }
   }
 }
