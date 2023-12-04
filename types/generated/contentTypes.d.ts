@@ -697,7 +697,6 @@ export interface ApiAnimeAnime extends Schema.CollectionType {
     image_url: Attribute.String;
     year: Attribute.Integer;
     mal_id: Attribute.Integer & Attribute.Unique;
-    genre: Attribute.Component<'genre.genre', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -773,6 +772,7 @@ export interface ApiExtendedUserExtendedUser extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     nickname: Attribute.String;
+    picture: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
