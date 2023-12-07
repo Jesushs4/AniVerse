@@ -721,6 +721,7 @@ export interface ApiAnimegenreAnimegenre extends Schema.CollectionType {
     singularName: 'animegenre';
     pluralName: 'animegenres';
     displayName: 'animegenre';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -728,7 +729,7 @@ export interface ApiAnimegenreAnimegenre extends Schema.CollectionType {
   attributes: {
     anime: Attribute.Relation<
       'api::animegenre.animegenre',
-      'oneToMany',
+      'oneToOne',
       'api::anime.anime'
     >;
     genre: Attribute.Relation<
@@ -836,12 +837,12 @@ export interface ApiLibraryLibrary extends Schema.CollectionType {
   attributes: {
     anime: Attribute.Relation<
       'api::library.library',
-      'oneToMany',
+      'oneToOne',
       'api::anime.anime'
     >;
     user: Attribute.Relation<
       'api::library.library',
-      'oneToMany',
+      'oneToOne',
       'plugin::users-permissions.user'
     >;
     episodes_watched: Attribute.Integer;

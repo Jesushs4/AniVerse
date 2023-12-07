@@ -14,12 +14,12 @@
   "attributes": {
     "anime": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::anime.anime"
     },
     "user": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
     "episodes_watched": {
